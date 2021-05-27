@@ -1,36 +1,31 @@
 package be.lampiris.model;
 
+import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
 import lombok.Data;
-import lombok.EqualsAndHashCode;
-import lombok.NoArgsConstructor;
-import lombok.ToString;
 
 import javax.persistence.*;
-import java.util.Set;
+import java.io.Serializable;
 
 @Data
-@EqualsAndHashCode
-@ToString
-@NoArgsConstructor
 @Entity
-@Table(name="book")
-public class Book {
+@Table(name = "book")
+@JsonIgnoreProperties({"hibernateLazyInitializer", "handler"})
+public class Book implements Serializable {
 
     @Id
-    @GeneratedValue(strategy=GenerationType.IDENTITY)
-    @Column(name="id")
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
+    @Column(name = "id")
     private int id;
 
-    @Column(name="title")
+    @Column(name = "title")
     private String title;
 
-    @ManyToMany(fetch=FetchType.EAGER,
-            cascade= {CascadeType.DETACH, CascadeType.MERGE,
-                    CascadeType.PERSIST, CascadeType.REFRESH})
-    @JoinTable(
-            name="book_bookcategory",
-            joinColumns=@JoinColumn(name="book_id"),
-            inverseJoinColumns=@JoinColumn(name="bookcategory_id"))
-    private Set<BookCategory> categories;
+    @ManyToOne(fetch = FetchType.LAZY)
+    @JoinColumn(name = "library_id")
+    private Library library;
+
+    @ManyToOne(fetch = FetchType.LAZY)
+    @JoinColumn(name = "book_family_id")
+    private BookFamily bookFamily;
 
 }
