@@ -1,34 +1,27 @@
 package be.lampiris.model;
 
-import javax.persistence.*;
-
-import com.fasterxml.jackson.annotation.JsonGetter;
-import com.fasterxml.jackson.annotation.JsonIgnore;
 import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
-import com.fasterxml.jackson.annotation.JsonSetter;
-import lombok.*;
+import lombok.AllArgsConstructor;
+import lombok.Data;
+import lombok.NoArgsConstructor;
 
+import javax.persistence.*;
 import java.io.Serializable;
 
 @Data
 @Entity
+@NoArgsConstructor
+@AllArgsConstructor
 @Table(name="book_family")
 @JsonIgnoreProperties({"hibernateLazyInitializer", "handler"})
 public class BookFamily implements Serializable {
 
     @Id
-    @GeneratedValue(strategy=GenerationType.IDENTITY)
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
     @Column(name="id")
-    private int id;
+    private Long id;
 
     @Column(name="name", unique=true)
     private String name;
-
-
-    @ManyToOne
-    @JoinColumn(name = "library_id", nullable = false)
-    @JsonIgnore
-    private Library library;
-
 
 }
