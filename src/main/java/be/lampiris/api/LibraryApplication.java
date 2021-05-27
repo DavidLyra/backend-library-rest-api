@@ -1,4 +1,4 @@
-package be.lampiris;
+package be.lampiris.api;
 
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;

@@ -1,6 +1,6 @@
-package be.lampiris.repository;
+package be.lampiris.api.repository;
 
-import be.lampiris.model.BookFamily;
+import be.lampiris.api.model.BookFamily;
 import org.springframework.data.jpa.repository.JpaRepository;
 import org.springframework.stereotype.Repository;
 

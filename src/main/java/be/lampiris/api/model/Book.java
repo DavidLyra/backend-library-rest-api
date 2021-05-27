@@ -1,4 +1,4 @@
-package be.lampiris.model;
+package be.lampiris.api.model;
 
 import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
 import lombok.AllArgsConstructor;
@@ -12,16 +12,20 @@ import java.io.Serializable;
 @Entity
 @NoArgsConstructor
 @AllArgsConstructor
-@Table(name="book_family")
+@Table(name = "book")
 @JsonIgnoreProperties({"hibernateLazyInitializer", "handler"})
-public class BookFamily implements Serializable {
+public class Book implements Serializable {
 
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
-    @Column(name="id")
+    @Column(name = "id")
     private Long id;
 
-    @Column(name="name", unique=true)
-    private String name;
+    @Column(name = "title")
+    private String title;
+
+    @ManyToOne(fetch = FetchType.LAZY)
+    @JoinColumn(name = "book_family_id")
+    private BookFamily bookFamily;
 
 }

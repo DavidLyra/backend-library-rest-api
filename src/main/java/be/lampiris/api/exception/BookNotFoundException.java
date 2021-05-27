@@ -1,4 +1,4 @@
-package be.lampiris.exception;
+package be.lampiris.api.exception;
 
 class BookNotFoundException extends RuntimeException {
 
