@@ -3,9 +3,9 @@ Backend Library Rest API
 
 ## Database
 
-The database used for this challenge was MySQL.
+The database used for this challenge was H2 in memory.
 
-The script is located in the resources directory: /main/resources/schema_database_mysql/*
+The script is located in the resources directory: /main/resources/data.sql
 
 ## Collection JSON
 
