@@ -1,0 +1,286 @@
+{
+	"info": {
+		"_postman_id": "0225c2cc-af78-4ec5-a7f1-d3296108eaca",
+		"name": "LIBRARY",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json"
+	},
+	"item": [
+		{
+			"name": "FindAllBookFamilies",
+			"request": {
+				"auth": {
+					"type": "basic",
+					"basic": [
+						{
+							"key": "password",
+							"value": "password",
+							"type": "string"
+						},
+						{
+							"key": "username",
+							"value": "admin",
+							"type": "string"
+						}
+					]
+				},
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "{{server}}/api/v1/bookfamily",
+					"host": [
+						"{{server}}"
+					],
+					"path": [
+						"api",
+						"v1",
+						"bookfamily"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "FindAllBooks",
+			"request": {
+				"auth": {
+					"type": "basic",
+					"basic": [
+						{
+							"key": "password",
+							"value": "password",
+							"type": "string"
+						},
+						{
+							"key": "username",
+							"value": "admin",
+							"type": "string"
+						}
+					]
+				},
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "{{server}}/api/v1/book",
+					"host": [
+						"{{server}}"
+					],
+					"path": [
+						"api",
+						"v1",
+						"book"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "InsertBookFamily",
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "    {\n          \"name\": \"Test\"\n    }",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "{{server}}/api/v1/bookfamily",
+					"host": [
+						"{{server}}"
+					],
+					"path": [
+						"api",
+						"v1",
+						"bookfamily"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "InsertBook",
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "   {\n        \"title\": \"Test Book\",\n        \"bookFamily\": {\n            \"id\": 1            \n        }\n    }",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "{{server}}/api/v1/book",
+					"host": [
+						"{{server}}"
+					],
+					"path": [
+						"api",
+						"v1",
+						"book"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "UpdateBookFamily",
+			"request": {
+				"method": "PUT",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "    {\n        \"name\": \"Test Update\"\n    }",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "{{server}}/api/v1/bookfamily/6",
+					"host": [
+						"{{server}}"
+					],
+					"path": [
+						"api",
+						"v1",
+						"bookfamily",
+						"6"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "UpdateBook",
+			"request": {
+				"method": "PUT",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "  {\n        \"title\": \"Test Book Updated\",\n        \"bookFamily\": {\n            \"id\": 2            \n        }\n    }",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "{{server}}/api/v1/book/11",
+					"host": [
+						"{{server}}"
+					],
+					"path": [
+						"api",
+						"v1",
+						"book",
+						"11"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "FindBookById",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "{{server}}/api/v1/book/1",
+					"host": [
+						"{{server}}"
+					],
+					"path": [
+						"api",
+						"v1",
+						"book",
+						"1"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "FindBookFamilyById",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "{{server}}/api/v1/bookfamily/1",
+					"host": [
+						"{{server}}"
+					],
+					"path": [
+						"api",
+						"v1",
+						"bookfamily",
+						"1"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "InsertBookFamily",
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "    {\n          \"name\": \"Test\"\n    }",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "{{server}}/api/v1/bookfamily",
+					"host": [
+						"{{server}}"
+					],
+					"path": [
+						"api",
+						"v1",
+						"bookfamily"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Authenticate",
+			"request": {
+				"method": "POST",
+				"header": [
+					{
+						"key": "Content-Type",
+						"value": "application/json",
+						"type": "text"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "{\n  \"email\": \"sa@email.com\",\n  \"password\": \"123456\"\n}"
+				},
+				"url": {
+					"raw": "{{server}}/auth",
+					"host": [
+						"{{server}}"
+					],
+					"path": [
+						"auth"
+					]
+				}
+			},
+			"response": []
+		}
+	]
+}
