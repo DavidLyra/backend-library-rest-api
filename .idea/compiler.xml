@@ -7,13 +7,13 @@
         <sourceOutputDir name="target/generated-sources/annotations" />
         <sourceTestOutputDir name="target/generated-test-sources/test-annotations" />
         <outputRelativeToContentRoot value="true" />
-        <module name="backend-library-rest-api" />
+        <module name="library-management-rest-api" />
       </profile>
     </annotationProcessing>
   </component>
   <component name="JavacSettings">
     <option name="ADDITIONAL_OPTIONS_OVERRIDE">
-      <module name="backend-library-rest-api" options="-parameters" />
+      <module name="library-management-rest-api" options="-parameters" />
     </option>
   </component>
 </project>

@@ -6,6 +6,6 @@ RUN apk --no-cache add msttcorefonts-installer fontconfig && update-ms-fonts && 
 
 ARG WAR_FILE=./target/*.war
 
-COPY ${WAR_FILE} backend-library-rest-api.war
+COPY ${WAR_FILE} library-management-rest-api.war
 
-CMD ["java", "-Dspring.profiles.active=docker", "-jar", "backend-library-rest-api.war"]
+CMD ["java", "-Dspring.profiles.active=docker", "-jar", "library-management-rest-api.war"]
