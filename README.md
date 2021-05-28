@@ -1,24 +1,25 @@
-# Read Me First
+# **Read Me First**
+
 Please read the following steps to setup the project in your local machine
 
-# Getting Started
+# **Getting Started**
+
 The following project is deployed with the following features:
 
-Java 11
-Spring Boot 2.4
-Spring Security with Bearer token
-Spring Data to persistence the data with H2 as database.
-Apache POI to generate the excel file
-Spring Fox with Swagger to generate the API documentation
-Docker as a container
+- Java 11
+- Spring Boot 2.4
+- Spring Security with Bearer token
+- Spring Data to persistence the data with H2 as database.
+- Spring Fox with Swagger to generate the API documentation
+- Docker as a container
 
-## Database
+# Database
 
 The database used for this challenge was H2 in memory.
 
 The script is located in the resources directory: /main/resources/data.sql
 
-## Collection JSON
+# Collection JSON
 
 The collection is located in the resources directory: /main/resources/postman_colection/*
 
