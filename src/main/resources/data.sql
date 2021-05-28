@@ -1,3 +1,5 @@
+INSERT INTO user (name, email, password) VALUES
+  ('sa', 'sa@email.com', 123456);
 
 INSERT INTO book_family (name) VALUES
   ('Science & Math'),

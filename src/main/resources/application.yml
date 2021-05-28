@@ -12,3 +12,8 @@ spring:
 
 swagger:
   enable: true
+
+lampiris:
+  jwt:
+    expiration: 86400000
+    secret: B8A0C3AD1ADF342067FCCE82CBDA8DA564E34BA988B7300CB4ABE0EEA77C0DB4
