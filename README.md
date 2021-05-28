@@ -1,7 +1,16 @@
-# Backend Library Rest API
+# Read Me First
+Please read the following steps to setup the project in your local machine
 
-backend-library-rest-api application 
+# Getting Started
+The following project is deployed with the following features:
 
+Java 11
+Spring Boot 2.4
+Spring Security with Bearer token
+Spring Data to persistence the data with H2 as database.
+Apache POI to generate the excel file
+Spring Fox with Swagger to generate the API documentation
+Docker as a container
 
 ## Database
 
