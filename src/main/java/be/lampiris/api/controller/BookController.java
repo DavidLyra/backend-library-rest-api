@@ -9,6 +9,7 @@ import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
 
+import javax.annotation.security.PermitAll;
 import javax.validation.Valid;
 import java.io.Serializable;
 import java.util.List;
@@ -24,24 +25,23 @@ public class BookController implements Serializable {
 
     @GetMapping
     @ApiOperation(value = "List all the book", response = Book.class)
+    @PermitAll
     public List<Book> getAllBook() {
         return bookRepository.findAll();
     }
 
     @GetMapping("/{id}")
     @ApiOperation(value = "List all the book by id", response = Book.class)
+    @PermitAll
     public ResponseEntity<Book> getBookFamilyById(@PathVariable("id") Long id) {
-        Optional<Book> bookData = bookRepository.findById(id);
 
-        if (bookData.isPresent()) {
-            return new ResponseEntity<>(bookData.get(), HttpStatus.OK);
-        } else {
-            return new ResponseEntity<>(HttpStatus.NOT_FOUND);
-        }
+        Optional<Book> bookData = bookRepository.findById(id);
+        return bookData.map(book -> new ResponseEntity<>(book, HttpStatus.OK)).orElseGet(() -> new ResponseEntity<>(HttpStatus.NOT_FOUND));
     }
 
     @PostMapping
     @ApiOperation(value = "Add a book")
+    @PermitAll
     public ResponseEntity<Book> createBook(@Valid @RequestBody Book book) {
         try {
             Book _book = bookRepository
@@ -54,6 +54,7 @@ public class BookController implements Serializable {
 
     @PutMapping("/{id}")
     @ApiOperation(value = "Update a book")
+    @PermitAll
     public ResponseEntity<Book> updateBook(@PathVariable("id") Long id, @Valid @RequestBody Book book) {
         Optional<Book> bookData = bookRepository.findById(id);
 

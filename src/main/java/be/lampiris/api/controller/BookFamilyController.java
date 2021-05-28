@@ -9,6 +9,7 @@ import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
 
+import javax.annotation.security.PermitAll;
 import javax.validation.Valid;
 import java.io.Serializable;
 import java.util.List;
@@ -24,24 +25,23 @@ public class BookFamilyController implements Serializable {
 
     @GetMapping
     @ApiOperation(value = "List all the book families", response = BookFamily.class)
+    @PermitAll
     public List<BookFamily> getAllBookFamily() {
         return bookFamilyRepository.findAll();
     }
 
     @GetMapping("/{id}")
     @ApiOperation(value = "List all the book families by id", response = BookFamily.class)
+    @PermitAll
     public ResponseEntity<BookFamily> getBookFamilyById(@PathVariable("id") Long id) {
-        Optional<BookFamily> bookFamilyData = bookFamilyRepository.findById(id);
 
-        if (bookFamilyData.isPresent()) {
-            return new ResponseEntity<>(bookFamilyData.get(), HttpStatus.OK);
-        } else {
-            return new ResponseEntity<>(HttpStatus.NOT_FOUND);
-        }
+        Optional<BookFamily> bookFamilyData = bookFamilyRepository.findById(id);
+        return bookFamilyData.map(bookFamily -> new ResponseEntity<>(bookFamily, HttpStatus.OK)).orElseGet(() -> new ResponseEntity<>(HttpStatus.NOT_FOUND));
     }
 
     @PostMapping
     @ApiOperation(value = "Add a book family")
+    @PermitAll
     public ResponseEntity<BookFamily> createBookFamily(@Valid @RequestBody BookFamily bookFamily) {
         try {
             BookFamily _bookFamily = bookFamilyRepository
@@ -54,6 +54,7 @@ public class BookFamilyController implements Serializable {
 
     @PutMapping("/{id}")
     @ApiOperation(value = "Update a book family")
+    @PermitAll
     public ResponseEntity<BookFamily> updateBookFamily(@PathVariable("id") Long id, @Valid @RequestBody BookFamily bookFamily) {
         Optional<BookFamily> bookFamilyData = bookFamilyRepository.findById(id);
 

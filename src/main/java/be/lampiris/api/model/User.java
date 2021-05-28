@@ -43,11 +43,8 @@ public class User implements UserDetails {
             return false;
         User other = (User) obj;
         if (id == null) {
-            if (other.id != null)
-                return false;
-        } else if (!id.equals(other.id))
-            return false;
-        return true;
+            return other.id == null;
+        } else return id.equals(other.id);
     }
 
     @Override
@@ -57,7 +54,7 @@ public class User implements UserDetails {
 
     @Override
     public String getUsername() {
-        return null;
+        return this.name;
     }
 
     @Override

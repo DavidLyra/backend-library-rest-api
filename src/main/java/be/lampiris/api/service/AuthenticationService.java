@@ -1,4 +1,4 @@
-package be.lampiris.api.config;
+package be.lampiris.api.service;
 
 import be.lampiris.api.model.User;
 import be.lampiris.api.repository.UserRepository;
