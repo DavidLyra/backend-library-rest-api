@@ -16,7 +16,7 @@ import java.io.Serializable;
 @Table(name="book_family")
 @NoArgsConstructor
 @AllArgsConstructor
-@EqualsAndHashCode(exclude ="books")
+@EqualsAndHashCode()
 @JsonIgnoreProperties(ignoreUnknown = true)
 public class BookFamily implements Serializable {
 
