@@ -5,7 +5,7 @@ This RESTAPI was developed with the objective of administering books in a librar
 The relationship of these entities "Book" and "BookFamily" occurs only in the "many to one" form, so a book will belong to only one family of books, for example, "Technology".
 
 About API security. We opted for authentication using JWT, being, therefore, more secure than Basic Authentication (simpler to implement).
-This application included only authentication and authorization with permission for all endpoints, including swagger and h2. Afterwards, we can also include roles to control authorization of access to API services, which is not in the scope of this test.
+In order to try to simplify the implementation of JWT, this application includes only authentication, over authorization, it is allowing access to all endpoints, including swagger and h2. Thus, once logged in and with the token, all endpoints can be accessed. Later, we can also include functions to control authorization of access to API services, which is not in the scope of this test.
 
 Even outside the informed scope and thinking about availability and monitoring of the API, I decided to use the Spring Boot Actuator to collect metrics, understand traffic, or the state of our database, this way they become trivial with this dependency, and have a low effort for implementation.
 
