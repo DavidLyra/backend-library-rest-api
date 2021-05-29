@@ -16,9 +16,10 @@ The following project is deployed with the following features:
 
 For reference, please follow the next steps:
 
-- Pull the project from GIT: [https://github.com/DavidLyra/library-management-rest-api.git](https://github.com/DavidLyra/library-management-rest-api.git)
-- In Eclipse, import the project as Maven project from the Check the **Build Path** of the project is compiled with Java 11
-- Open the Terminal and go inside the **project backend-library-rest-api/**. Then execute the following command to package the project:
+- Clone the project from GIT: [https://github.com/DavidLyra/library-management-rest-api.git](https://github.com/DavidLyra/library-management-rest-api.git)
+- In ItelliJ IDEA, import the project as Maven projecT.
+- Open the Terminal and go inside the **project backend-library-rest-api/**. 
+- Execute the following command to package and start the project:
 
 `mvn package`
 
