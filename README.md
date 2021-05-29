@@ -79,17 +79,17 @@ To send requests and view responses, test the endpoints using the collection loc
 1. Make sure the project is running
 2. Make a POST request to `http://localhost:8080/auth` with the default admin user we programatically created to get a valid JWT token:
 
-    **Request Body**
+       **Request Body**
 
-    {
-        "email": "sa@email.com",
-        "password": "123456"
-    }
+       {
+           "email": "sa@email.com",
+           "password": "123456"
+       }
 
-    **Response body**
+       **Response body**
 
-    {
-        "token": "eyJhbGciOiJIUzI1NiJ9.eyJzdWIiOiJzYSIsInJvbGVzIjpbXSwiZXhwIjoxNzA4Njc4NzM2LCJpYXQiOjE2MjIyNzg3MzZ9.TFVjHPzH10Frn3k3QZmJs56EbRAega55oPI-sH7pMHA"
-    }
+       {
+           "token": "eyJhbGciOiJIUzI1NiJ9.eyJzdWIiOiJzYSIsInJvbGVzIjpbXSwiZXhwIjoxNzA4Njc4NzM2LCJpYXQiOjE2MjIyNzg3MzZ9.TFVjHPzH10Frn3k3QZmJs56EbRAega55oPI-sH7pMHA"
+       }
 
 3. Add the JWT token as a Bearer token parameter and make the initial GET request to rest of endpoints.
