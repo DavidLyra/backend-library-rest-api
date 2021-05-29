@@ -51,9 +51,12 @@ Go to URL: http://localhost:8080/h2-console
 - User Name: sa
 - Password: password
 
-# Collection JSON
+# POSTMAN
 
-The collection is located in the resources directory: /main/resources/postman_colection/*
+To test the endpoints use the collection located in the project, in the resources directory: /main/resources/postman_colection
+
+1. Make sure the project is running
+2. Open POSTMAN an import the file **LIBRARY.postman_collection.json**
 
 # Generated Swagger Documentation
 ## When you start the application, you are all set to view the documentation that is generated.
