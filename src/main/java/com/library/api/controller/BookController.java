@@ -2,23 +2,23 @@ package com.library.api.controller;
 
 import com.library.api.model.Book;
 import com.library.api.repository.BookRepository;
-import com.library.api.util.BookExcelExporter;
+import com.library.api.util.BookCsvExporter;
 import io.swagger.annotations.Api;
 import io.swagger.annotations.ApiOperation;
-import org.apache.poi.ss.usermodel.Sheet;
-import org.apache.poi.ss.usermodel.Workbook;
-import org.apache.poi.xssf.usermodel.XSSFWorkbook;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.core.io.InputStreamResource;
+import org.springframework.core.io.Resource;
 import org.springframework.http.HttpHeaders;
 import org.springframework.http.HttpStatus;
+import org.springframework.http.MediaType;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
 
 import javax.annotation.security.PermitAll;
-import javax.servlet.http.HttpServletResponse;
 import javax.validation.Valid;
-import java.io.IOException;
 import java.io.Serializable;
+import java.util.Arrays;
+import java.util.Collections;
 import java.util.List;
 import java.util.Optional;
 
@@ -75,19 +75,39 @@ public class BookController implements Serializable {
         }
     }
 
-    @PostMapping("/export/send")
-    @ApiOperation(value = "Export books and send to FTP")
+    @PostMapping("/{id}/export/send")
+    @ApiOperation(value = "Export a book and send to FTP")
     @PermitAll
-    public ResponseEntity<Book> exportAndSendFtpBookList(@Valid @RequestBody List<Book> books) {
+    public ResponseEntity<Resource> exportAndSendBookFtp(@PathVariable("id") Long id) {
         try {
-            BookExcelExporter excelExporter = new BookExcelExporter(books);
-            HttpHeaders httpHeaders = new HttpHeaders();
-            httpHeaders.add(HttpHeaders.CONTENT_TYPE, "application/octet-stream");
-            httpHeaders.set( HttpHeaders.CONTENT_DISPOSITION, "attachment; filename=books.xlsx");
-            return new ResponseEntity( excelExporter, httpHeaders, HttpStatus.OK );
+            Optional<Book> book = bookRepository.findById(id);
+            if (book.isPresent()) {
+                InputStreamResource file = new InputStreamResource(BookCsvExporter.booksToCSV(Collections.singletonList(book.get())));
+                return ResponseEntity.ok()
+                        .header(HttpHeaders.CONTENT_DISPOSITION, "attachment; filename=books.csv")
+                        .contentType(MediaType.parseMediaType("text/csv")).body(file);
+
+            } else return new ResponseEntity<>(null, HttpStatus.NOT_FOUND);
         } catch (Exception e) {
             return new ResponseEntity<>(null, HttpStatus.BAD_REQUEST);
         }
     }
 
+    @PostMapping("/family/{familyId}/export/send")
+    @ApiOperation(value = "Export a book family and send to FTP")
+    @PermitAll
+    public ResponseEntity<Resource> exportAndSendBookFamilyListFtp(@PathVariable("familyId") Long id) {
+        try {
+            Optional<List<Book>> bookList = bookRepository.findByBookFamilyId(id);
+            if (bookList.isPresent()) {
+                InputStreamResource file = new InputStreamResource(BookCsvExporter.booksToCSV(bookList.get()));
+                return ResponseEntity.ok()
+                        .header(HttpHeaders.CONTENT_DISPOSITION, "attachment; filename=books.csv")
+                        .contentType(MediaType.parseMediaType("text/csv")).body(file);
+
+            } else return new ResponseEntity<>(null, HttpStatus.NOT_FOUND);
+        } catch (Exception e) {
+            return new ResponseEntity<>(null, HttpStatus.BAD_REQUEST);
+        }
+    }
 }
