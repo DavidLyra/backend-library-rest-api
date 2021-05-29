@@ -68,6 +68,16 @@ To send requests and view responses, test the endpoints using the collection loc
 1. Make sure the project is running
 2. Open POSTMAN an import the file **LIBRARY.postman_collection.json**
 
-# Basic Auth Authorization
-User: sa@email.com
-Password: 123456
+# Spring Security with Bearer token
+
+1. Make sure the project is running
+2. Run on terminal the command:
+
+curl --location --request POST 'http://localhost:8080/auth' \
+--header 'Content-Type: application/json' \
+--header 'Cookie: JSESSIONID=31D802B0250D33C492CD7EE8258515D7' \
+--data-raw '{
+    "email": "sa@email.com",
+    "password": "123456"
+}'
+
