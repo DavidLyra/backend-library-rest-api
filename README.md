@@ -5,6 +5,8 @@ This RESTAPI was developed with the objective of management books in a library f
 About API security. We opted for authentication using JWT, being, therefore, more secure than Basic Authentication (simpler to implement).
 This application included only authentication and authorization with permission for all endpoints, including swagger and h2. Afterwards, we can also include roles to control authorization of access to API services, which is not in the scope of this test.
 
+Even outside the informed scope and thinking about availability and monitoring of the API, I decided to use the Spring Boot Actuator to collect metrics, understand traffic, or the state of our database, this way they become trivial with this dependency, and have a low effort for implementation.
+
 Please read the following steps to setup the project in your local machine.
 
 # **Getting Started**
