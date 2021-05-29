@@ -1,5 +1,5 @@
 
-Please read the following steps to setup the project in your local machine
+Please read the following steps to setup the project in your local machine.
 
 # **Getting Started**
 
