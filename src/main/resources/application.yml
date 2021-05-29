@@ -10,9 +10,19 @@ spring:
     console:
       enabled: true
 
+#actuator com.library.apy
+management:
+  endpoint:
+    health:
+      show-details: always
+  endpoints:
+    web:
+      exposure:
+        include: '*'
 swagger:
   enable: true
 
+#jwt config
 lampiris:
   jwt:
     expiration: 86400000
