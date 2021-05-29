@@ -1,3 +1,6 @@
+# Library Management REST API
+
+This application included only authentication and authorization with permission for all endpoints, including swagger and h2. Afterwards, we can also include roles to control authorization of access to API services, which is not in the scope of this test.
 
 Please read the following steps to setup the project in your local machine.
 
