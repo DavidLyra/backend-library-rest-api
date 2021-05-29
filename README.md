@@ -71,17 +71,14 @@ To send requests and view responses, test the endpoints using the collection loc
 # Spring Security with Bearer token
 
 1. Make sure the project is running
-2. Run on terminal the command:
+2. Make a POST request to `http://localhost:8080/auth` with the default admin user we programatically created to get a valid JWT token:
 
-### Request
+### Request Body
 
-curl --location --request POST 'http://localhost:8080/auth' \
---header 'Content-Type: application/json' \
---header 'Cookie: JSESSIONID=31D802B0250D33C492CD7EE8258515D7' \
---data-raw '{
+{
     "email": "sa@email.com",
     "password": "123456"
-}'
+}
 
 ### Response body
 
