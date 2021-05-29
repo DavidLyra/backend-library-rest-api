@@ -92,4 +92,4 @@ To send requests and view responses, test the endpoints using the collection loc
            "token": "eyJhbGciOiJIUzI1NiJ9.eyJzdWIiOiJzYSIsInJvbGVzIjpbXSwiZXhwIjoxNzA4Njc4NzM2LCJpYXQiOjE2MjIyNzg3MzZ9.TFVjHPzH10Frn3k3QZmJs56EbRAega55oPI-sH7pMHA"
        }
 
-3. Add the JWT token as a Bearer token parameter and make the initial GET request to rest of endpoints.
+3. Add the JWT token as a Bearer token parameter and make the initial request to rest of endpoints.
