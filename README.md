@@ -1,6 +1,8 @@
 # Library Management REST API
 
-This RESTAPI was developed with the objective of management books in a library for the requested exam. An API for managing one or more libraries was not included in the scope, so the entity "library" was not included in this first version, as well as its relationship with the entity "books". If necessary, we can include this requirement in an upcoming version of the API.
+This RESTAPI was developed with the objective of administering books in a library for the requested exam. An API for managing one or more libraries was not included in the scope, so the entity "Library" was not included in this first version, as well as its relationship with the entity "Book", includes only the entities "Book" and "BookFamily" .
+
+The relationship of these entities "Book" and "BookFamily" occurs only in the "many to one" form, so a book will belong to only one family of books, for example, "Technology".
 
 About API security. We opted for authentication using JWT, being, therefore, more secure than Basic Authentication (simpler to implement).
 This application included only authentication and authorization with permission for all endpoints, including swagger and h2. Afterwards, we can also include roles to control authorization of access to API services, which is not in the scope of this test.
