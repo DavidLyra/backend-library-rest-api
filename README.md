@@ -74,7 +74,7 @@ The application was configured as a Spring Boot to integrate swagger2. In Spring
 To send requests and view responses, test the endpoints using the collection located in the project: / main / resources / postman_colection
 
 1. Make sure the project is running
-2. Open POSTMAN an import the file **LIBRARY.postman_collection.json**
+2. Open Postman API Client an import the file **LIBRARY.postman_collection.json**
 
 # Spring Security with Bearer token
 
