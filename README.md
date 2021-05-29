@@ -74,17 +74,17 @@ To send requests and view responses, test the endpoints using the collection loc
 1. Make sure the project is running
 2. Open POSTMAN an import the file **LIBRARY.postman_collection.json**
 
-# Spring Security with Bearer token
+    # Spring Security with Bearer token
 
-1. Make sure the project is running
-2. Make a POST request to `http://localhost:8080/auth` with the default admin user we programatically created to get a valid JWT token:
+    1. Make sure the project is running
+    2. Make a POST request to `http://localhost:8080/auth` with the default admin user we programatically created to get a valid JWT token:
 
-**Request Body**
+    **Request Body**
 
-{
-    "email": "sa@email.com",
-    "password": "123456"
-}
+    {
+        "email": "sa@email.com",
+        "password": "123456"
+    }
 
 **Response body**
 
