@@ -25,7 +25,7 @@ The following project is deployed with the following features:
 For reference, please follow the next steps:
 
 1. Clone the project from GIT: [https://github.com/DavidLyra/library-management-rest-api.git](https://github.com/DavidLyra/library-management-rest-api.git)
-2. In ItelliJ IDEA, import the project as Maven projec.
+2. In ItelliJ IDEA, import the project as Maven project.
 3. Open the Terminal and go inside the **project backend-library-rest-api/**. 
 4. Execute the following command to package and start the project:
 
