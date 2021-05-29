@@ -53,7 +53,7 @@ The script is located in the resources directory: /main/resources/data.sql
 - User Name: sa
 - Password: password
 
-# POSTMAN
+# Postman API Client
 
 To send requests and view responses, test the endpoints using the collection located in the project: / main / resources / postman_colection
 
@@ -61,9 +61,11 @@ To send requests and view responses, test the endpoints using the collection loc
 2. Open POSTMAN an import the file **LIBRARY.postman_collection.json**
 
 # Generated Swagger Documentation
-## When you start the application, you are all set to view the documentation that is generated.
 
-Go to URL: http://localhost:8080/v2/api-docs
+When you start the application, you are all set to view the documentation that is generated.
+
+1. Make sure the project is running
+2. Go to URL: http://localhost:8080/v2/api-docs
 
 # Basic Auth Authorization
 User: sa@email.com
