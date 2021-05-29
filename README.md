@@ -7,7 +7,7 @@ The relationship of these entities "Book" and "BookFamily" occurs only in the "m
 About API security. We opted for authentication using JWT, being, therefore, more secure than Basic Authentication (simpler to implement).
 In order to try to simplify the implementation of JWT, this application includes only authentication, over authorization, it is allowing access to all endpoints, including swagger and h2. Thus, once logged in and with the token, all endpoints can be accessed. Later, we can also include functions to control authorization of access to API services, which is not in the scope of this test.
 
-Even outside the informed scope and thinking about availability and monitoring of the API, I decided to use the Spring Boot Actuator to collect metrics, understand traffic, or the state of our database, this way they become trivial with this dependency, and have a low effort for implementation.
+Even outside the informed scope and thinking about availability and monitoring of the API, I decided to use the Spring Boot Actuator to collect metrics, understand traffic, or the state of our database, this way they become trivial with this dependency, and have a low effort for implementation. With the Spring Boot Actuator it is possible to create an environment for monitoring and alerts, integrating with tools such as Prometheus and Grafana.
 
 Please read the following steps to setup the project in your local machine.
 
