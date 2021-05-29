@@ -1,6 +1,6 @@
 # Library Management REST API
 
-This RESTAPI was developed with the objective of administering books in a library for the requested exam. An API for managing one or more libraries was not included in the scope, so the entity "Library" was not included in this first version, as well as its relationship with the entity "Book", includes only the entities "Book" and "BookFamily" .
+This RESTAPI was developed with the objective of administering books in a library for the requested exam. An API for managing one or more libraries was not included in the scope, so the entity "Library" was not included in this first version, as well as its relationship with the entity "Book". Includes only the entities "Book" and "BookFamily" .
 
 The relationship of these entities "Book" and "BookFamily" occurs only in the "many to one" form, so a book will belong to only one family of books, for example, "Technology".
 
