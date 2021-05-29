@@ -55,7 +55,7 @@ The script is located in the resources directory: /main/resources/data.sql
 
 # POSTMAN
 
-To test the endpoints use the collection located in the project, in the resources directory: /main/resources/postman_colection
+To send requests and view responses, test the endpoints using the collection located in the project: / main / resources / postman_colection
 
 1. Make sure the project is running
 2. Open POSTMAN an import the file **LIBRARY.postman_collection.json**
