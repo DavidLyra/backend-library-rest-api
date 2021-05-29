@@ -1,16 +1,18 @@
 package com.library.api.util;
 
+import lombok.extern.slf4j.Slf4j;
 import org.apache.commons.net.PrintCommandListener;
 import org.apache.commons.net.ftp.FTPClient;
 import org.apache.commons.net.ftp.FTPReply;
 
 import java.io.*;
 
+@Slf4j
 public class FTPUploader {
 
     FTPClient ftp;
 
-    public FTPUploader(String host, String user, String pwd) throws Exception{
+    public FTPUploader(String host, String user, String pwd) throws IOException {
         ftp = new FTPClient();
         ftp.addProtocolCommandListener(new PrintCommandListener(new PrintWriter(System.out)));
         int reply;
@@ -18,7 +20,7 @@ public class FTPUploader {
         reply = ftp.getReplyCode();
         if (!FTPReply.isPositiveCompletion(reply)) {
             ftp.disconnect();
-            throw new Exception("Exception in connecting to FTP Server");
+            log.error("Exception in connecting to FTP Server");
         }
         ftp.login(user, pwd);
         ftp.enterLocalPassiveMode();

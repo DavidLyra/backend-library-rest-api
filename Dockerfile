@@ -1,11 +1,4 @@
-FROM openjdk:14-alpine
-
-RUN apk upgrade --update && apk add freetype
-
-RUN apk --no-cache add msttcorefonts-installer fontconfig && update-ms-fonts && fc-cache -f
-
-ARG WAR_FILE=./target/*.war
-
-COPY ${WAR_FILE} library-management-rest-api.war
-
-CMD ["java", "-Dspring.profiles.active=docker", "-jar", "library-management-rest-api.war"]
+FROM adoptopenjdk/openjdk11:alpine-jre
+ARG JAR_FILE
+COPY ${JAR_FILE} app.jar
+ENTRYPOINT ["java","-jar","/library-management-rest-api.jar"]

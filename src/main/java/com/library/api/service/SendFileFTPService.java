@@ -20,6 +20,7 @@ public class SendFileFTPService {
 
     public void sendFileFtp(InputStream file, String fileName, String hostDir) throws Exception {
         FTPUploader ftpUploader = new FTPUploader(server, username, password);
-        ftpUploader.uploadFile(file,"books.csv", "");
+        ftpUploader.uploadFile(file, fileName, hostDir);
+        ftpUploader.disconnect();
     }
 }
