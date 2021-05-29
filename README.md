@@ -18,6 +18,7 @@ The following project is deployed with the following features:
 - Spring Security with Bearer token
 - Spring Data to persistence the data with H2 as database.
 - Spring Fox with Swagger to generate the API documentation
+- Spring Actuator to monitoring the API.
 - Docker as a container
 
 # **Reference Documentation**
