@@ -53,19 +53,19 @@ The script is located in the resources directory: /main/resources/data.sql
 - User Name: sa
 - Password: password
 
-# Postman API Client
-
-To send requests and view responses, test the endpoints using the collection located in the project: / main / resources / postman_colection
-
-1. Make sure the project is running
-2. Open POSTMAN an import the file **LIBRARY.postman_collection.json**
-
 # Generated Swagger Documentation
 
 The application was configured as a Spring Boot to integrate swagger2. In Spring Boot, a REST API was exposed. The documentation of REST services is very important and should help consumers of the service to know which services are available, such as authentication. In addition, it is a simple way to test whether the service is active.
 
 1. Make sure the project is running
 2. Go to URL: http://localhost:8080/v2/api-docs
+
+# Postman API Client
+
+To send requests and view responses, test the endpoints using the collection located in the project: / main / resources / postman_colection
+
+1. Make sure the project is running
+2. Open POSTMAN an import the file **LIBRARY.postman_collection.json**
 
 # Basic Auth Authorization
 User: sa@email.com
