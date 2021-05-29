@@ -21,7 +21,7 @@ import org.springframework.web.bind.annotation.RestController;
 
 @RestController
 @RequestMapping("/auth")
-@Api(tags = "Authentication Controller", value = "Backend Library REST API - Lampiris")
+@Api(tags = "Authentication Controller", value = "Library Management REST API - Lampiris")
 public class AuthenticationController {
 	
 	@Autowired

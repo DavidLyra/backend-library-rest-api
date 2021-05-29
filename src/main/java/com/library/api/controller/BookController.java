@@ -17,7 +17,7 @@ import java.util.Optional;
 
 @RestController
 @RequestMapping("/api/v1/book")
-@Api(tags = "Book Controller", value = "Backend Library REST API - Lampiris")
+@Api(tags = "Book Controller", value = "Library Management REST API - Lampiris")
 public class BookController implements Serializable {
 
     @Autowired

@@ -24,12 +24,12 @@ public class SpringFoxConfig {
     public Docket api() {
         return new Docket(DocumentationType.SWAGGER_2)
                 .select()
-                .apis(RequestHandlerSelectors.basePackage("be.lampiris.api"))
+                .apis(RequestHandlerSelectors.basePackage("com.library.api"))
                 .apis(RequestHandlerSelectors.any())
                 .paths(PathSelectors.any())
                 .build().apiInfo(new ApiInfo(
-                        "Backend Library REST API - Lampiris",
-                        "Backend Library REST API Documentation - Lampiris",
+                        "Library Management REST API - Lampiris",
+                        "Library Management REST API Documentation - Lampiris",
                         "1.0.0",
                         "Terms of service",
                         new Contact("David Lyra", null, "david.lyra.pt@gmail.com"),
