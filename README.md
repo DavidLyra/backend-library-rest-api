@@ -44,7 +44,9 @@ The script is located in the resources directory: /main/resources/data.sql
 
 ## H2 Console
 
-Go to URL: http://localhost:8080/h2-console
+1. Make sure the project is running
+2. Go to URL: http://localhost:8080/h2-console
+3. Login:
 
 - Driver Class: org.h2.driver
 - JDBC URL: jdbc:h2:mem:testdb
