@@ -10,7 +10,7 @@ spring:
     console:
       enabled: true
 
-#actuator com.library.apy
+# Actuator com.library.api
 management:
   endpoint:
     health:
@@ -22,7 +22,15 @@ management:
 swagger:
   enable: true
 
-#jwt config
+# FTP config
+ftp:
+  username: dlpuser
+  password: rNrKYTX9g7z3RgJRmxWuGHbeu
+  server: sftp.dlptest.com
+  port: 21
+  keepAliveTimout: 10
+
+# JWT config
 lampiris:
   jwt:
     expiration: 86400000

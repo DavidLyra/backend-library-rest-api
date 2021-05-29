@@ -1,0 +1,420 @@
+{
+	"info": {
+		"_postman_id": "3ace33cf-67b6-4c78-bc47-49fca5788b39",
+		"name": "LIBRARY MANAGEMENT",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json"
+	},
+	"item": [
+		{
+			"name": "FindAllBookFamilies",
+			"request": {
+				"auth": {
+					"type": "bearer",
+					"bearer": [
+						{
+							"key": "token",
+							"value": "eyJhbGciOiJIUzI1NiJ9.eyJzdWIiOiJzYSIsInJvbGVzIjpbXSwiZXhwIjoxNzA4NjEzMjM5LCJpYXQiOjE2MjIyMTMyMzl9.RI_CMvQa82j447fkomOnQF4alFOYz3KBq8_q26faK2E",
+							"type": "string"
+						}
+					]
+				},
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "{{server}}/api/v1/bookfamily",
+					"host": [
+						"{{server}}"
+					],
+					"path": [
+						"api",
+						"v1",
+						"bookfamily"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "FindAllBooks",
+			"request": {
+				"auth": {
+					"type": "bearer",
+					"bearer": [
+						{
+							"key": "token",
+							"value": "eyJhbGciOiJIUzI1NiJ9.eyJzdWIiOiJzYSIsInJvbGVzIjpbXSwiZXhwIjoxNzA4NjEzMjM5LCJpYXQiOjE2MjIyMTMyMzl9.RI_CMvQa82j447fkomOnQF4alFOYz3KBq8_q26faK2E",
+							"type": "string"
+						}
+					]
+				},
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "{{server}}/api/v1/book",
+					"host": [
+						"{{server}}"
+					],
+					"path": [
+						"api",
+						"v1",
+						"book"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "InsertBookFamily",
+			"request": {
+				"auth": {
+					"type": "bearer",
+					"bearer": [
+						{
+							"key": "token",
+							"value": "eyJhbGciOiJIUzI1NiJ9.eyJzdWIiOiJzYSIsInJvbGVzIjpbXSwiZXhwIjoxNzA4NjEzMjM5LCJpYXQiOjE2MjIyMTMyMzl9.RI_CMvQa82j447fkomOnQF4alFOYz3KBq8_q26faK2E",
+							"type": "string"
+						}
+					]
+				},
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "    {\n          \"name\": \"Test\"\n    }",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "{{server}}/api/v1/bookfamily",
+					"host": [
+						"{{server}}"
+					],
+					"path": [
+						"api",
+						"v1",
+						"bookfamily"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "InsertBook",
+			"request": {
+				"auth": {
+					"type": "bearer",
+					"bearer": [
+						{
+							"key": "token",
+							"value": "eyJhbGciOiJIUzI1NiJ9.eyJzdWIiOiJzYSIsInJvbGVzIjpbXSwiZXhwIjoxNzA4NjEzMjM5LCJpYXQiOjE2MjIyMTMyMzl9.RI_CMvQa82j447fkomOnQF4alFOYz3KBq8_q26faK2E",
+							"type": "string"
+						}
+					]
+				},
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "   {\n        \"title\": \"Test Book\",\n        \"bookFamily\": {\n            \"id\": 1            \n        }\n    }",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "{{server}}/api/v1/book",
+					"host": [
+						"{{server}}"
+					],
+					"path": [
+						"api",
+						"v1",
+						"book"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "UpdateBookFamily",
+			"request": {
+				"auth": {
+					"type": "bearer",
+					"bearer": [
+						{
+							"key": "token",
+							"value": "eyJhbGciOiJIUzI1NiJ9.eyJzdWIiOiJzYSIsInJvbGVzIjpbXSwiZXhwIjoxNzA4NjEzMjM5LCJpYXQiOjE2MjIyMTMyMzl9.RI_CMvQa82j447fkomOnQF4alFOYz3KBq8_q26faK2E",
+							"type": "string"
+						}
+					]
+				},
+				"method": "PUT",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "    {\n        \"name\": \"Test Update\"\n    }",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "{{server}}/api/v1/bookfamily/6",
+					"host": [
+						"{{server}}"
+					],
+					"path": [
+						"api",
+						"v1",
+						"bookfamily",
+						"6"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "UpdateBook",
+			"request": {
+				"auth": {
+					"type": "bearer",
+					"bearer": [
+						{
+							"key": "token",
+							"value": "eyJhbGciOiJIUzI1NiJ9.eyJzdWIiOiJzYSIsInJvbGVzIjpbXSwiZXhwIjoxNzA4NjEzMjM5LCJpYXQiOjE2MjIyMTMyMzl9.RI_CMvQa82j447fkomOnQF4alFOYz3KBq8_q26faK2E",
+							"type": "string"
+						}
+					]
+				},
+				"method": "PUT",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "  {\n        \"title\": \"Test Book Updated\",\n        \"bookFamily\": {\n            \"id\": 2            \n        }\n    }",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "{{server}}/api/v1/book/11",
+					"host": [
+						"{{server}}"
+					],
+					"path": [
+						"api",
+						"v1",
+						"book",
+						"11"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "FindBookById",
+			"request": {
+				"auth": {
+					"type": "bearer",
+					"bearer": [
+						{
+							"key": "token",
+							"value": "eyJhbGciOiJIUzI1NiJ9.eyJzdWIiOiJzYSIsInJvbGVzIjpbXSwiZXhwIjoxNzA4NjEzMjM5LCJpYXQiOjE2MjIyMTMyMzl9.RI_CMvQa82j447fkomOnQF4alFOYz3KBq8_q26faK2E",
+							"type": "string"
+						}
+					]
+				},
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "{{server}}/api/v1/book/1",
+					"host": [
+						"{{server}}"
+					],
+					"path": [
+						"api",
+						"v1",
+						"book",
+						"1"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "FindBookFamilyById",
+			"request": {
+				"auth": {
+					"type": "bearer",
+					"bearer": [
+						{
+							"key": "token",
+							"value": "eyJhbGciOiJIUzI1NiJ9.eyJzdWIiOiJzYSIsInJvbGVzIjpbXSwiZXhwIjoxNzA4NjEzMjM5LCJpYXQiOjE2MjIyMTMyMzl9.RI_CMvQa82j447fkomOnQF4alFOYz3KBq8_q26faK2E",
+							"type": "string"
+						}
+					]
+				},
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "{{server}}/api/v1/bookfamily/1",
+					"host": [
+						"{{server}}"
+					],
+					"path": [
+						"api",
+						"v1",
+						"bookfamily",
+						"1"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "InsertBookFamily",
+			"request": {
+				"auth": {
+					"type": "bearer",
+					"bearer": [
+						{
+							"key": "token",
+							"value": "eyJhbGciOiJIUzI1NiJ9.eyJzdWIiOiJzYSIsInJvbGVzIjpbXSwiZXhwIjoxNzA4NjEzMjM5LCJpYXQiOjE2MjIyMTMyMzl9.RI_CMvQa82j447fkomOnQF4alFOYz3KBq8_q26faK2E",
+							"type": "string"
+						}
+					]
+				},
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "    {\n          \"name\": \"Test\"\n    }",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "{{server}}/api/v1/bookfamily",
+					"host": [
+						"{{server}}"
+					],
+					"path": [
+						"api",
+						"v1",
+						"bookfamily"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Authenticate",
+			"request": {
+				"method": "POST",
+				"header": [
+					{
+						"key": "Content-Type",
+						"value": "application/json",
+						"type": "text"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "{\n    \"email\": \"sa@email.com\",\n    \"password\": \"123456\"\n}"
+				},
+				"url": {
+					"raw": "{{server}}/auth",
+					"host": [
+						"{{server}}"
+					],
+					"path": [
+						"auth"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "ExportAndSendBookFtp",
+			"request": {
+				"auth": {
+					"type": "bearer",
+					"bearer": [
+						{
+							"key": "token",
+							"value": "eyJhbGciOiJIUzI1NiJ9.eyJzdWIiOiJzYSIsInJvbGVzIjpbXSwiZXhwIjoxNzA4NjkxOTU1LCJpYXQiOjE2MjIyOTE5NTV9.QZV0RTElz2BompoIxK8jbnuJDoYbMci5hZ6oSaMKJAo",
+							"type": "string"
+						}
+					]
+				},
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "[\n    {\n        \"id\": 1,\n        \"title\": \"Clean Code\",\n        \"bookFamily\": {\n            \"id\": 1,\n            \"name\": \"Science & Math\"\n        }\n    },\n    {\n        \"id\": 2,\n        \"title\": \"Humankind: A Hopeful History\",\n        \"bookFamily\": {\n            \"id\": 3,\n            \"name\": \"History & Philosophy of Science\"\n        }\n    },\n    {\n        \"id\": 3,\n        \"title\": \"The Big Roads: The Untold Story of the Engineers, Visionaries, and Trailblazers Who Created the American Superhighways\",\n        \"bookFamily\": {\n            \"id\": 2,\n            \"name\": \"Technology\"\n        }\n    },\n    {\n        \"id\": 4,\n        \"title\": \"No Rules Rules: Netflix and the Culture of Reinvention\",\n        \"bookFamily\": {\n            \"id\": 2,\n            \"name\": \"Technology\"\n        }\n    },\n    {\n        \"id\": 5,\n        \"title\": \"Behold a Pale Horse\",\n        \"bookFamily\": {\n            \"id\": 4,\n            \"name\": \"Physics\"\n        }\n    },\n    {\n        \"id\": 6,\n        \"title\": \"The Human Cosmos: Civilization and the Stars\",\n        \"bookFamily\": {\n            \"id\": 4,\n            \"name\": \"Physics\"\n        }\n    },\n    {\n        \"id\": 7,\n        \"title\": \"Rocket Billionaires: Elon Musk, Jeff Bezos, and the New Space Race\",\n        \"bookFamily\": {\n            \"id\": 1,\n            \"name\": \"Science & Math\"\n        }\n    },\n    {\n        \"id\": 8,\n        \"title\": \"Astrophysics for People in a Hurry\",\n        \"bookFamily\": {\n            \"id\": 1,\n            \"name\": \"Science & Math\"\n        }\n    },\n    {\n        \"id\": 9,\n        \"title\": \"A Brief History of Time\",\n        \"bookFamily\": {\n            \"id\": 1,\n            \"name\": \"Science & Math\"\n        }\n    },\n    {\n        \"id\": 10,\n        \"title\": \"There is No Place Like Space: All About Our Solar System\",\n        \"bookFamily\": {\n            \"id\": 1,\n            \"name\": \"Science & Math\"\n        }\n    }\n]",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "{{server}}/api/v1/book/2/export/send",
+					"host": [
+						"{{server}}"
+					],
+					"path": [
+						"api",
+						"v1",
+						"book",
+						"2",
+						"export",
+						"send"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "ExportAndSendBookByFamilyFtp",
+			"request": {
+				"auth": {
+					"type": "bearer",
+					"bearer": [
+						{
+							"key": "token",
+							"value": "eyJhbGciOiJIUzI1NiJ9.eyJzdWIiOiJzYSIsInJvbGVzIjpbXSwiZXhwIjoxNzA4NzExNDM2LCJpYXQiOjE2MjIzMTE0MzZ9.SEHC07r497f5U75fC1VSJVcX1bRK2j4okNW3hLv44Ns",
+							"type": "string"
+						}
+					]
+				},
+				"method": "POST",
+				"header": [],
+				"url": {
+					"raw": "{{server}}/api/v1/book/family/1/export/send",
+					"host": [
+						"{{server}}"
+					],
+					"path": [
+						"api",
+						"v1",
+						"book",
+						"family",
+						"1",
+						"export",
+						"send"
+					]
+				}
+			},
+			"response": []
+		}
+	]
+}

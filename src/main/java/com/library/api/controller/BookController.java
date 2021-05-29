@@ -2,6 +2,7 @@ package com.library.api.controller;
 
 import com.library.api.model.Book;
 import com.library.api.repository.BookRepository;
+import com.library.api.service.SendFileFTPService;
 import com.library.api.util.BookCsvExporter;
 import io.swagger.annotations.Api;
 import io.swagger.annotations.ApiOperation;
@@ -16,7 +17,7 @@ import org.springframework.web.bind.annotation.*;
 
 import javax.annotation.security.PermitAll;
 import javax.validation.Valid;
-import java.io.Serializable;
+import java.io.*;
 import java.util.Collections;
 import java.util.List;
 import java.util.Optional;
@@ -28,6 +29,9 @@ public class BookController implements Serializable {
 
     @Autowired
     private BookRepository bookRepository;
+
+    @Autowired
+    private SendFileFTPService sendFileFTPService;
 
     @GetMapping
     @ApiOperation(value = "List all the book", response = Book.class)
@@ -80,6 +84,7 @@ public class BookController implements Serializable {
     public ResponseEntity<Resource> exportAndSendBookFtp(@PathVariable("id") Long id) {
         try {
             Optional<Book> book = bookRepository.findById(id);
+
             if (book.isPresent()) {
                 InputStreamResource file = new InputStreamResource(BookCsvExporter.booksToCSV(Collections.singletonList(book.get())));
                 return ResponseEntity.ok()
@@ -98,12 +103,10 @@ public class BookController implements Serializable {
     public ResponseEntity<Resource> exportAndSendBookFamilyListFtp(@PathVariable("familyId") Long id) {
         try {
             Optional<List<Book>> bookList = bookRepository.findByBookFamilyId(id);
-            if (bookList.isPresent()) {
-                InputStreamResource file = new InputStreamResource(BookCsvExporter.booksToCSV(bookList.get()));
-                return ResponseEntity.ok()
-                        .header(HttpHeaders.CONTENT_DISPOSITION, "attachment; filename=books.csv")
-                        .contentType(MediaType.parseMediaType("text/csv")).body(file);
 
+            if (bookList.isPresent()) {
+                sendFileFTPService.sendFileFtp(BookCsvExporter.booksToCSV(bookList.get()), "books.csv", "");
+                return new ResponseEntity<>(null, HttpStatus.OK);
             } else return new ResponseEntity<>(null, HttpStatus.NOT_FOUND);
         } catch (Exception e) {
             return new ResponseEntity<>(null, HttpStatus.BAD_REQUEST);
