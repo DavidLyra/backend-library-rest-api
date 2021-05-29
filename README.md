@@ -1,5 +1,13 @@
+# Library Management REST API
 
-Please read the following steps to setup the project in your local machine
+This RESTAPI was developed with the objective of management books in a library for the requested exam. An API for managing one or more libraries was not included in the scope, so the entity "library" was not included in this first version, as well as its relationship with the entity "books". If necessary, we can include this requirement in an upcoming version of the API.
+
+About API security. We opted for authentication using JWT, being, therefore, more secure than Basic Authentication (simpler to implement).
+This application included only authentication and authorization with permission for all endpoints, including swagger and h2. Afterwards, we can also include roles to control authorization of access to API services, which is not in the scope of this test.
+
+Even outside the informed scope and thinking about availability and monitoring of the API, I decided to use the Spring Boot Actuator to collect metrics, understand traffic, or the state of our database, this way they become trivial with this dependency, and have a low effort for implementation.
+
+Please read the following steps to setup the project in your local machine.
 
 # **Getting Started**
 
@@ -16,9 +24,10 @@ The following project is deployed with the following features:
 
 For reference, please follow the next steps:
 
-- Pull the project from GIT: [https://github.com/DavidLyra/backend-library-rest-api.git](https://github.com/DavidLyra/backend-library-rest-api.git)
-- In Eclipse, import the project as Maven project from the Check the **Build Path** of the project is compiled with Java 11
-- Open the Terminal and go inside the **project backend-library-rest-api/**. Then execute the following command to package the project:
+1. Clone the project from GIT: [https://github.com/DavidLyra/library-management-rest-api.git](https://github.com/DavidLyra/library-management-rest-api.git)
+2. In ItelliJ IDEA, import the project as Maven projecT.
+3. Open the Terminal and go inside the **project backend-library-rest-api/**. 
+4. Execute the following command to package and start the project:
 
 `mvn package`
 
@@ -36,21 +45,53 @@ If everything is fine, open the Swagger API documentation of this project locate
 - To stop the project, use the next command:
 `mvn docker:stop`
 
-# Database
+# H2 Database
 
-The database used for this challenge was H2 in memory.
+This REST API is currently using an H2 database called **test_db** so you can run it quickly and out-of-the-box without much configuration.
 
 The script is located in the resources directory: /main/resources/data.sql
 
-# Collection JSON
+## H2 Console
 
-The collection is located in the resources directory: /main/resources/postman_colection/*
+1. Make sure the project is running
+2. Go to URL: http://localhost:8080/h2-console
+3. Login:
+
+- Driver Class: org.h2.driver
+- JDBC URL: jdbc:h2:mem:testdb
+- User Name: sa
+- Password: password
 
 # Generated Swagger Documentation
-## When you start the application, you are all set to view the documentation that is generated.
 
-Go to URL: http://localhost:8080/v2/api-docs
+The application was configured as a Spring Boot to integrate swagger2. In Spring Boot, a REST API was exposed. The documentation of REST services is very important and should help consumers of the service to know which services are available, such as authentication. In addition, it is a simple way to test whether the service is active.
 
-# Basic Auth Authorization
-User: sa@email.com
-Password: 123456
+1. Make sure the project is running
+2. Go to URL: http://localhost:8090/swagger-ui.html
+
+# Postman API Client
+
+To send requests and view responses, test the endpoints using the collection located in the project: / main / resources / postman_colection
+
+1. Make sure the project is running
+2. Open Postman API Client an import the file **LIBRARY.postman_collection.json**
+
+# Spring Security with Bearer token
+
+1. Make sure the project is running
+2. Make a POST request to `http://localhost:8080/auth` with the default admin user we programatically created to get a valid JWT token:
+
+       Request Body:
+
+       {
+           "email": "sa@email.com",
+           "password": "123456"
+       }
+
+       Response body:
+
+       {
+           "token": "eyJhbGciOiJIUzI1NiJ9.eyJzdWIiOiJzYSIsInJvbGVzIjpbXSwiZXhwIjoxNzA4Njc4NzM2LCJpYXQiOjE2MjIyNzg3MzZ9.TFVjHPzH10Frn3k3QZmJs56EbRAega55oPI-sH7pMHA"
+       }
+
+3. Add the JWT token as a Bearer token parameter and make the initial request to rest of endpoints.
