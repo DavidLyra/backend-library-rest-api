@@ -2,15 +2,22 @@ package com.library.api.controller;
 
 import com.library.api.model.Book;
 import com.library.api.repository.BookRepository;
+import com.library.api.util.BookExcelExporter;
 import io.swagger.annotations.Api;
 import io.swagger.annotations.ApiOperation;
+import org.apache.poi.ss.usermodel.Sheet;
+import org.apache.poi.ss.usermodel.Workbook;
+import org.apache.poi.xssf.usermodel.XSSFWorkbook;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.http.HttpHeaders;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
 
 import javax.annotation.security.PermitAll;
+import javax.servlet.http.HttpServletResponse;
 import javax.validation.Valid;
+import java.io.IOException;
 import java.io.Serializable;
 import java.util.List;
 import java.util.Optional;
@@ -65,6 +72,21 @@ public class BookController implements Serializable {
             return new ResponseEntity<>(bookRepository.save(_book), HttpStatus.OK);
         } else {
             return new ResponseEntity<>(HttpStatus.NOT_FOUND);
+        }
+    }
+
+    @PostMapping("/export/send")
+    @ApiOperation(value = "Export books and send to FTP")
+    @PermitAll
+    public ResponseEntity<Book> exportAndSendFtpBookList(@Valid @RequestBody List<Book> books) {
+        try {
+            BookExcelExporter excelExporter = new BookExcelExporter(books);
+            HttpHeaders httpHeaders = new HttpHeaders();
+            httpHeaders.add(HttpHeaders.CONTENT_TYPE, "application/octet-stream");
+            httpHeaders.set( HttpHeaders.CONTENT_DISPOSITION, "attachment; filename=books.xlsx");
+            return new ResponseEntity( excelExporter, httpHeaders, HttpStatus.OK );
+        } catch (Exception e) {
+            return new ResponseEntity<>(null, HttpStatus.BAD_REQUEST);
         }
     }
 
