@@ -1,6 +1,6 @@
 {
 	"info": {
-		"_postman_id": "0225c2cc-af78-4ec5-a7f1-d3296108eaca",
+		"_postman_id": "3ace33cf-67b6-4c78-bc47-49fca5788b39",
 		"name": "LIBRARY",
 		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json"
 	},
@@ -9,16 +9,11 @@
 			"name": "FindAllBookFamilies",
 			"request": {
 				"auth": {
-					"type": "basic",
-					"basic": [
+					"type": "bearer",
+					"bearer": [
 						{
-							"key": "password",
-							"value": "password",
-							"type": "string"
-						},
-						{
-							"key": "username",
-							"value": "admin",
+							"key": "token",
+							"value": "eyJhbGciOiJIUzI1NiJ9.eyJzdWIiOiJzYSIsInJvbGVzIjpbXSwiZXhwIjoxNzA4NjEzMjM5LCJpYXQiOjE2MjIyMTMyMzl9.RI_CMvQa82j447fkomOnQF4alFOYz3KBq8_q26faK2E",
 							"type": "string"
 						}
 					]
@@ -43,16 +38,11 @@
 			"name": "FindAllBooks",
 			"request": {
 				"auth": {
-					"type": "basic",
-					"basic": [
+					"type": "bearer",
+					"bearer": [
 						{
-							"key": "password",
-							"value": "password",
-							"type": "string"
-						},
-						{
-							"key": "username",
-							"value": "admin",
+							"key": "token",
+							"value": "eyJhbGciOiJIUzI1NiJ9.eyJzdWIiOiJzYSIsInJvbGVzIjpbXSwiZXhwIjoxNzA4NjEzMjM5LCJpYXQiOjE2MjIyMTMyMzl9.RI_CMvQa82j447fkomOnQF4alFOYz3KBq8_q26faK2E",
 							"type": "string"
 						}
 					]
@@ -76,6 +66,16 @@
 		{
 			"name": "InsertBookFamily",
 			"request": {
+				"auth": {
+					"type": "bearer",
+					"bearer": [
+						{
+							"key": "token",
+							"value": "eyJhbGciOiJIUzI1NiJ9.eyJzdWIiOiJzYSIsInJvbGVzIjpbXSwiZXhwIjoxNzA4NjEzMjM5LCJpYXQiOjE2MjIyMTMyMzl9.RI_CMvQa82j447fkomOnQF4alFOYz3KBq8_q26faK2E",
+							"type": "string"
+						}
+					]
+				},
 				"method": "POST",
 				"header": [],
 				"body": {
@@ -104,6 +104,16 @@
 		{
 			"name": "InsertBook",
 			"request": {
+				"auth": {
+					"type": "bearer",
+					"bearer": [
+						{
+							"key": "token",
+							"value": "eyJhbGciOiJIUzI1NiJ9.eyJzdWIiOiJzYSIsInJvbGVzIjpbXSwiZXhwIjoxNzA4NjEzMjM5LCJpYXQiOjE2MjIyMTMyMzl9.RI_CMvQa82j447fkomOnQF4alFOYz3KBq8_q26faK2E",
+							"type": "string"
+						}
+					]
+				},
 				"method": "POST",
 				"header": [],
 				"body": {
@@ -132,6 +142,16 @@
 		{
 			"name": "UpdateBookFamily",
 			"request": {
+				"auth": {
+					"type": "bearer",
+					"bearer": [
+						{
+							"key": "token",
+							"value": "eyJhbGciOiJIUzI1NiJ9.eyJzdWIiOiJzYSIsInJvbGVzIjpbXSwiZXhwIjoxNzA4NjEzMjM5LCJpYXQiOjE2MjIyMTMyMzl9.RI_CMvQa82j447fkomOnQF4alFOYz3KBq8_q26faK2E",
+							"type": "string"
+						}
+					]
+				},
 				"method": "PUT",
 				"header": [],
 				"body": {
@@ -161,6 +181,16 @@
 		{
 			"name": "UpdateBook",
 			"request": {
+				"auth": {
+					"type": "bearer",
+					"bearer": [
+						{
+							"key": "token",
+							"value": "eyJhbGciOiJIUzI1NiJ9.eyJzdWIiOiJzYSIsInJvbGVzIjpbXSwiZXhwIjoxNzA4NjEzMjM5LCJpYXQiOjE2MjIyMTMyMzl9.RI_CMvQa82j447fkomOnQF4alFOYz3KBq8_q26faK2E",
+							"type": "string"
+						}
+					]
+				},
 				"method": "PUT",
 				"header": [],
 				"body": {
@@ -190,6 +220,16 @@
 		{
 			"name": "FindBookById",
 			"request": {
+				"auth": {
+					"type": "bearer",
+					"bearer": [
+						{
+							"key": "token",
+							"value": "eyJhbGciOiJIUzI1NiJ9.eyJzdWIiOiJzYSIsInJvbGVzIjpbXSwiZXhwIjoxNzA4NjEzMjM5LCJpYXQiOjE2MjIyMTMyMzl9.RI_CMvQa82j447fkomOnQF4alFOYz3KBq8_q26faK2E",
+							"type": "string"
+						}
+					]
+				},
 				"method": "GET",
 				"header": [],
 				"url": {
@@ -210,6 +250,16 @@
 		{
 			"name": "FindBookFamilyById",
 			"request": {
+				"auth": {
+					"type": "bearer",
+					"bearer": [
+						{
+							"key": "token",
+							"value": "eyJhbGciOiJIUzI1NiJ9.eyJzdWIiOiJzYSIsInJvbGVzIjpbXSwiZXhwIjoxNzA4NjEzMjM5LCJpYXQiOjE2MjIyMTMyMzl9.RI_CMvQa82j447fkomOnQF4alFOYz3KBq8_q26faK2E",
+							"type": "string"
+						}
+					]
+				},
 				"method": "GET",
 				"header": [],
 				"url": {
@@ -230,6 +280,16 @@
 		{
 			"name": "InsertBookFamily",
 			"request": {
+				"auth": {
+					"type": "bearer",
+					"bearer": [
+						{
+							"key": "token",
+							"value": "eyJhbGciOiJIUzI1NiJ9.eyJzdWIiOiJzYSIsInJvbGVzIjpbXSwiZXhwIjoxNzA4NjEzMjM5LCJpYXQiOjE2MjIyMTMyMzl9.RI_CMvQa82j447fkomOnQF4alFOYz3KBq8_q26faK2E",
+							"type": "string"
+						}
+					]
+				},
 				"method": "POST",
 				"header": [],
 				"body": {
@@ -268,7 +328,7 @@
 				],
 				"body": {
 					"mode": "raw",
-					"raw": "{\n  \"email\": \"sa@email.com\",\n  \"password\": \"123456\"\n}"
+					"raw": "{\n    \"email\": \"sa@email.com\",\n    \"password\": \"123456\"\n}"
 				},
 				"url": {
 					"raw": "{{server}}/auth",
