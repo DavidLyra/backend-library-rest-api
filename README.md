@@ -45,7 +45,7 @@ If everything is fine, open the Swagger API documentation of this project locate
 
 # H2 Database
 
-This demo is currently using an H2 database called **test_db** so you can run it quickly and out-of-the-box without much configuration.
+This REST API is currently using an H2 database called **test_db** so you can run it quickly and out-of-the-box without much configuration.
 
 The script is located in the resources directory: /main/resources/data.sql
 
