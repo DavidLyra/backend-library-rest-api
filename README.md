@@ -16,7 +16,7 @@ The following project is deployed with the following features:
 
 For reference, please follow the next steps:
 
-- Pull the project from GIT: [https://github.com/DavidLyra/backend-library-rest-api.git](https://github.com/DavidLyra/backend-library-rest-api.git)
+- Pull the project from GIT: [https://github.com/DavidLyra/library-management-rest-api.git](https://github.com/DavidLyra/library-management-rest-api.git)
 - In Eclipse, import the project as Maven project from the Check the **Build Path** of the project is compiled with Java 11
 - Open the Terminal and go inside the **project backend-library-rest-api/**. Then execute the following command to package the project:
 
@@ -36,11 +36,20 @@ If everything is fine, open the Swagger API documentation of this project locate
 - To stop the project, use the next command:
 `mvn docker:stop`
 
-# Database
+# H2 Database
 
-The database used for this challenge was H2 in memory.
+This demo is currently using an H2 database called **test_db** so you can run it quickly and out-of-the-box without much configuration.
 
 The script is located in the resources directory: /main/resources/data.sql
+
+## H2 Console
+
+Go to URL: http://localhost:8080/h2-console
+
+- Driver Class: org.h2.driver
+- JDBC URL: jdbc:h2:mem:testdb
+- User Name: sa
+- Password: password
 
 # Collection JSON
 
