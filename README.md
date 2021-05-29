@@ -73,6 +73,8 @@ To send requests and view responses, test the endpoints using the collection loc
 1. Make sure the project is running
 2. Run on terminal the command:
 
+### Request
+
 curl --location --request POST 'http://localhost:8080/auth' \
 --header 'Content-Type: application/json' \
 --header 'Cookie: JSESSIONID=31D802B0250D33C492CD7EE8258515D7' \
@@ -80,4 +82,10 @@ curl --location --request POST 'http://localhost:8080/auth' \
     "email": "sa@email.com",
     "password": "123456"
 }'
+
+### Response body
+
+{
+    "token": "eyJhbGciOiJIUzI1NiJ9.eyJzdWIiOiJzYSIsInJvbGVzIjpbXSwiZXhwIjoxNzA4Njc4NzM2LCJpYXQiOjE2MjIyNzg3MzZ9.TFVjHPzH10Frn3k3QZmJs56EbRAega55oPI-sH7pMHA"
+}
 
