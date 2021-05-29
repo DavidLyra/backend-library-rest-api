@@ -62,7 +62,7 @@ To send requests and view responses, test the endpoints using the collection loc
 
 # Generated Swagger Documentation
 
-When you start the application, you are all set to view the documentation that is generated.
+The application was configured as a Spring Boot to integrate swagger2. In Spring Boot, a REST API was exposed. The documentation of REST services is very important and should help consumers of the service to know which services are available, such as authentication. In addition, it is a simple way to test whether the service is active.
 
 1. Make sure the project is running
 2. Go to URL: http://localhost:8080/v2/api-docs
