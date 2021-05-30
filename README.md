@@ -98,7 +98,7 @@ To send requests and view responses, test the endpoints using the collection loc
 
 # Connect to FTP Server to send the books file.
 
-In the configuration file "application.yml", access to the FTP server must be configured.
+In the "application.yml" configuration file, you must configure access to the FTP server. In the example below, we chose a simple external public server to test and upload the file.
 
        # FTP config
        ftp:
