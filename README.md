@@ -35,11 +35,13 @@ For reference, please follow the next steps:
 
 ## Two scripts were created to build the Docker image and create the container.
 
-1. Run shell-script 'build.sh', in the terminal, in the main project folder:
+1. Access the project directory.
+
+3. Run shell-script 'build.sh':
 
        sh build.sh
 
-2. Run the shell-script 'run.sh', in the terminal, in the main project folder:
+3. Run the shell-script 'run.sh':
 
        sh run.sh
 
