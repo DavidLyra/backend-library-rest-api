@@ -51,6 +51,8 @@ public class WebSecurityConfig extends WebSecurityConfigurerAdapter {
             .antMatchers(AUTH_WHITELIST).permitAll()
             .anyRequest().authenticated();
 
+        http.headers().frameOptions().disable();
+
         http.addFilterBefore(jwtRequestFilter, UsernamePasswordAuthenticationFilter.class);
     }
 
