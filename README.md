@@ -32,21 +32,16 @@ For reference, please follow the next steps:
 3. Open the Terminal and go inside the **project backend-library-rest-api/**. 
 4. Execute the following command to package and start the project:
 
-`mvn package`
 
-- Then, to run the project, execute the following command
+## Two scripts were created to build the Docker image and create the container.
 
-`mvn docker:start`
+1. Run shell-script 'build.sh', in the terminal, in the main project folder:
 
-This command will show you the starter log with the Starter CONTAINER ID
-- To view the log trace, copy the CONTAINER ID and execute the following command:
+       sh build.sh
 
-`docker logs --follow {CONTAINER_ID}`
+2. Run the shell-script 'run.sh', in the terminal, in the main project folder:
 
-If everything is fine, open the Swagger API documentation of this project located in [http://localhost:8090/swagger-ui.html](http://localhost:8090/swagger-ui.html)
-
-- To stop the project, use the next command:
-`mvn docker:stop`
+       sh run.sh
 
 # H2 Database
 
