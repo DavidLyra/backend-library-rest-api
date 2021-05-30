@@ -4,19 +4,19 @@ import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
 import io.swagger.annotations.ApiModelProperty;
 import lombok.AllArgsConstructor;
 import lombok.Data;
-import lombok.EqualsAndHashCode;
 import lombok.NoArgsConstructor;
+import org.springframework.validation.annotation.Validated;
 
 import javax.persistence.*;
-import javax.validation.constraints.NotNull;
+import javax.validation.constraints.NotBlank;
 import java.io.Serializable;
 
 @Data
+@Validated
 @Entity
 @Table(name="book_family")
 @NoArgsConstructor
 @AllArgsConstructor
-@EqualsAndHashCode()
 @JsonIgnoreProperties(ignoreUnknown = true)
 public class BookFamily implements Serializable {
 
@@ -28,6 +28,6 @@ public class BookFamily implements Serializable {
 
     @Column(name="name")
     @ApiModelProperty(notes = "Book Family Name", example = "Technology", required = true)
-    @NotNull(message = "Name is mandatory")
+    @NotBlank(message = "Name is mandatory")
     private String name;
 }

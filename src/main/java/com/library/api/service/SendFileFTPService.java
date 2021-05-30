@@ -1,11 +1,13 @@
 package com.library.api.service;
 
 import com.library.api.util.FTPUploader;
+import lombok.extern.slf4j.Slf4j;
 import org.springframework.beans.factory.annotation.Value;
 import org.springframework.stereotype.Service;
 
 import java.io.InputStream;
 
+@Slf4j
 @Service
 public class SendFileFTPService {
 
@@ -22,5 +24,6 @@ public class SendFileFTPService {
         FTPUploader ftpUploader = new FTPUploader(server, username, password);
         ftpUploader.uploadFile(file, fileName, hostDir);
         ftpUploader.disconnect();
+        log.info("File sent to FTP Server!");
     }
 }

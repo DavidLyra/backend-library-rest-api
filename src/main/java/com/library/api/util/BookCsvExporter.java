@@ -34,6 +34,7 @@ public class BookCsvExporter {
             csvPrinter.flush();
             return new ByteArrayInputStream(out.toByteArray());
         } catch (IOException e) {
+            log.error("fail to import data to CSV file: ", e.getMessage());
             throw new RuntimeException("fail to import data to CSV file: " + e.getMessage());
         }
     }

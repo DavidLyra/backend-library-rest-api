@@ -10,7 +10,7 @@ import java.io.*;
 @Slf4j
 public class FTPUploader {
 
-    FTPClient ftp;
+    final FTPClient ftp;
 
     public FTPUploader(String host, String user, String pwd) throws IOException {
         ftp = new FTPClient();
@@ -20,7 +20,7 @@ public class FTPUploader {
         reply = ftp.getReplyCode();
         if (!FTPReply.isPositiveCompletion(reply)) {
             ftp.disconnect();
-            log.error("Exception in connecting to FTP Server");
+            log.error("Exception in connecting to FTP Server.");
         }
         ftp.login(user, pwd);
         ftp.enterLocalPassiveMode();

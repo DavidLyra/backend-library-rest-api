@@ -5,12 +5,15 @@ import io.swagger.annotations.ApiModelProperty;
 import lombok.AllArgsConstructor;
 import lombok.Data;
 import lombok.NoArgsConstructor;
+import org.springframework.validation.annotation.Validated;
 
 import javax.persistence.*;
 import javax.validation.constraints.NotBlank;
+import javax.validation.constraints.NotNull;
 import java.io.Serializable;
 
 @Data
+@Validated
 @Entity
 @NoArgsConstructor
 @AllArgsConstructor
@@ -31,5 +34,6 @@ public class Book implements Serializable {
 
     @ManyToOne
     @JoinColumn(name = "book_family_id")
+    @NotNull
     private BookFamily bookFamily;
 }
