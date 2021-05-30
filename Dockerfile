@@ -1,4 +1,6 @@
 FROM adoptopenjdk/openjdk11:alpine-jre
-ARG JAR_FILE
+RUN addgroup -S app && adduser -S app -G app
+USER app:app
+ARG JAR_FILE=target/*.jar
 COPY ${JAR_FILE} app.jar
-ENTRYPOINT ["java","-jar","/library-management-rest-api.jar"]
+ENTRYPOINT ["java","-jar","/app.jar"]
