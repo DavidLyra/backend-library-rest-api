@@ -95,3 +95,17 @@ To send requests and view responses, test the endpoints using the collection loc
        }
 
 3. Add the JWT token as a Bearer token parameter and make the initial request to rest of endpoints.
+
+# Connect to FTP Server to send the books file.
+
+In the configuration file "application.yml", access to the FTP server must be configured.
+
+       # FTP config
+       ftp:
+         username: dlpuser
+         password: rNrKYTX9g7z3RgJRmxWuGHbeu
+         server: sftp.dlptest.com
+         port: 21
+         keepAliveTimout: 10
+
+
