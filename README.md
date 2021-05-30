@@ -47,7 +47,7 @@ For reference, please follow the next steps:
 
 # H2 Database
 
-This REST API is currently using an H2 database called **test_db** so you can run it quickly and out-of-the-box without much configuration.
+This REST API is currently using an H2 database called **testdb** so you can run it quickly and out-of-the-box without much configuration.
 
 The script is located in the resources directory: /main/resources/data.sql
 
@@ -60,7 +60,7 @@ The script is located in the resources directory: /main/resources/data.sql
 - Driver Class: org.h2.driver
 - JDBC URL: jdbc:h2:mem:testdb
 - User Name: sa
-- Password: password
+- Password: library
 
 # Generated Swagger Documentation
 
