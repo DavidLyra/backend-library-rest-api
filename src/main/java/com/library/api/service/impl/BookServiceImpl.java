@@ -1,5 +1,6 @@
 package com.library.api.service.impl;
 
+import com.library.api.exception.EntityNotFoundException;
 import com.library.api.model.Book;
 import com.library.api.repository.BookRepository;
 import com.library.api.service.BookService;
@@ -32,7 +33,11 @@ public class BookServiceImpl implements BookService {
     @Override
     public ResponseEntity<Book> getBookFamilyById(Long id) {
         Optional<Book> bookData = bookRepository.findById(id);
-        return bookData.map(book -> new ResponseEntity<>(book, HttpStatus.OK)).orElseGet(() -> new ResponseEntity<>(HttpStatus.NOT_FOUND));
+        if (bookData.isPresent()) {
+            return new ResponseEntity<>(bookData.get(), HttpStatus.OK);
+        } else {
+            throw new EntityNotFoundException(Book.class, "id", id.toString());
+        }
     }
 
     @Override
@@ -54,7 +59,7 @@ public class BookServiceImpl implements BookService {
             _book.setBookFamily(book.getBookFamily());
             return new ResponseEntity<>(bookRepository.save(_book), HttpStatus.OK);
         } else {
-            return new ResponseEntity<>(HttpStatus.NOT_FOUND);
+            throw new EntityNotFoundException(Book.class, "id", id.toString());
         }
     }
 
@@ -65,7 +70,7 @@ public class BookServiceImpl implements BookService {
             if (book.isPresent()) {
                 sendFileFTPService.sendFileFtp(BookCsvExporter.booksToCSV(Collections.singletonList(book.get())), "books.csv", "");
                 return new ResponseEntity<>(null, HttpStatus.OK);
-            } else return new ResponseEntity<>(null, HttpStatus.NOT_FOUND);
+            } else throw new EntityNotFoundException(Book.class, "id", id.toString());
         } catch (Exception e) {
             return new ResponseEntity<>(null, HttpStatus.BAD_REQUEST);
         }
@@ -77,7 +82,7 @@ public class BookServiceImpl implements BookService {
             if (bookList.isPresent()) {
                 sendFileFTPService.sendFileFtp(BookCsvExporter.booksToCSV(bookList.get()), "books.csv", "");
                 return new ResponseEntity<>(null, HttpStatus.OK);
-            } else return new ResponseEntity<>(null, HttpStatus.NOT_FOUND);
+            } else throw new EntityNotFoundException(Book.class, "id", id.toString());
         } catch (Exception e) {
             return new ResponseEntity<>(null, HttpStatus.BAD_REQUEST);
         }
