@@ -1,5 +1,6 @@
 package com.library.api.service.impl;
 
+import com.library.api.exception.EntityNotFoundException;
 import com.library.api.model.BookFamily;
 import com.library.api.repository.BookFamilyRepository;
 import com.library.api.service.BookFamilyService;
@@ -25,8 +26,11 @@ public class BookFamilyServiceImpl implements BookFamilyService {
     @Override
     public ResponseEntity<BookFamily> getBookFamilyById(Long id) {
         Optional<BookFamily> bookFamilyData = bookFamilyRepository.findById(id);
-        return bookFamilyData.map(bookFamily -> new ResponseEntity<>(bookFamily, HttpStatus.OK)).orElseGet(()
-                -> new ResponseEntity<>(HttpStatus.NOT_FOUND));
+        if (bookFamilyData.isPresent()) {
+            return new ResponseEntity<>(bookFamilyData.get(), HttpStatus.OK);
+        } else {
+            throw new EntityNotFoundException(BookFamily.class, "id", id.toString());
+        }
     }
 
     @Override
@@ -48,7 +52,7 @@ public class BookFamilyServiceImpl implements BookFamilyService {
             _bookFamily.setName(bookFamily.getName());
             return new ResponseEntity<>(bookFamilyRepository.save(_bookFamily), HttpStatus.OK);
         } else {
-            return new ResponseEntity<>(HttpStatus.NOT_FOUND);
+            throw new EntityNotFoundException(BookFamily.class, "id", id.toString());
         }
     }
 }
