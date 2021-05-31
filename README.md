@@ -100,10 +100,14 @@ To send requests and view responses, test the endpoints using the collection loc
 
 In the "application.yml" configuration file, you must configure access to the FTP server. In the example below, we chose a simple external public server to test and upload the file.
 
+The user and password can be verified on the website: https://dataleaktest.com/uploader/ftp.aspx
+
+Example application.yml config:
+
        # FTP config
        ftp:
          username: dlpuser
-         password: rNrKYTX9g7z3RgJRmxWuGHbeu
+         password: 123456
          server: sftp.dlptest.com
          port: 21
          keepAliveTimout: 10
