@@ -1,3 +1,3 @@
 #!/bin/sh
 
-docker run -it --rm -p 8080:8080 library-management-rest-api
+docker run -d --name app -p 8080:8080 library-management-rest-api
