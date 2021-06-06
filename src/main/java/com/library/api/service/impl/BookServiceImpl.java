@@ -1,7 +1,9 @@
 package com.library.api.service.impl;
 
+import com.library.api.converter.BookConverter;
 import com.library.api.exception.EntityNotFoundException;
 import com.library.api.model.Book;
+import com.library.api.model.dto.BookDto;
 import com.library.api.repository.BookRepository;
 import com.library.api.service.BookService;
 import com.library.api.service.SendFileFTPService;
@@ -23,41 +25,44 @@ public class BookServiceImpl implements BookService {
     private BookRepository bookRepository;
 
     @Autowired
+    private BookConverter bookConverter;
+
+    @Autowired
     private SendFileFTPService sendFileFTPService;
 
     @Override
-    public List<Book> getAllBook() {
-        return bookRepository.findAll();
+    public List<BookDto> getAllBook() {
+        return bookConverter.entityToDto(bookRepository.findAll());
     }
 
     @Override
-    public ResponseEntity<Book> getBookFamilyById(Long id) {
+    public ResponseEntity<BookDto> getBookFamilyById(Long id) {
         Optional<Book> bookData = bookRepository.findById(id);
         if (bookData.isPresent()) {
-            return new ResponseEntity<>(bookData.get(), HttpStatus.OK);
+            return new ResponseEntity<>(bookConverter.entityToDto(bookData.get()), HttpStatus.OK);
         } else {
             throw new EntityNotFoundException(Book.class, "id", id.toString());
         }
     }
 
     @Override
-    public ResponseEntity<Book> createBook(Book book) {
+    public ResponseEntity<BookDto> createBook(BookDto bookDto) {
         try {
-            Book _book = bookRepository.save(book);
-            return new ResponseEntity<>(_book, HttpStatus.CREATED);
+            Book _book = bookRepository.save(bookConverter.dtoToEntity(bookDto));
+            return new ResponseEntity<>(bookConverter.entityToDto(_book), HttpStatus.CREATED);
         } catch (Exception e) {
             return new ResponseEntity<>(null, HttpStatus.BAD_REQUEST);
         }
     }
 
     @Override
-    public ResponseEntity<Book> updateBook(Long id, Book book) {
+    public ResponseEntity<BookDto> updateBook(Long id, BookDto bookDto) {
         Optional<Book> bookData = bookRepository.findById(id);
         if (bookData.isPresent()) {
             Book _book = bookData.get();
-            _book.setTitle(book.getTitle());
-            _book.setBookFamily(book.getBookFamily());
-            return new ResponseEntity<>(bookRepository.save(_book), HttpStatus.OK);
+            _book.setTitle(bookDto.getTitle());
+            _book.setBookFamily(bookDto.getBookFamily());
+            return new ResponseEntity<>(bookConverter.entityToDto(bookRepository.save(_book)), HttpStatus.OK);
         } else {
             throw new EntityNotFoundException(Book.class, "id", id.toString());
         }

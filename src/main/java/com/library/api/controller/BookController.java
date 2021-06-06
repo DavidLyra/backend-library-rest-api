@@ -1,6 +1,7 @@
 package com.library.api.controller;
 
 import com.library.api.model.Book;
+import com.library.api.model.dto.BookDto;
 import com.library.api.service.BookService;
 import io.swagger.annotations.Api;
 import io.swagger.annotations.ApiOperation;
@@ -25,29 +26,29 @@ public class BookController implements Serializable {
     @GetMapping
     @ApiOperation(value = "List all the book", response = Book.class)
     @PermitAll
-    public List<Book> getAllBook() {
+    public List<BookDto> getAllBook() {
         return bookService.getAllBook();
     }
 
     @GetMapping("/{id}")
     @ApiOperation(value = "List all the book by id", response = Book.class)
     @PermitAll
-    public ResponseEntity<Book> getBookFamilyById(@PathVariable("id") Long id) {
+    public ResponseEntity<BookDto> getBookFamilyById(@PathVariable("id") Long id) {
         return bookService.getBookFamilyById(id);
     }
 
     @PostMapping
     @ApiOperation(value = "Add a book")
     @PermitAll
-    public ResponseEntity<Book> createBook(@Valid @RequestBody Book book) {
-        return bookService.createBook(book);
+    public ResponseEntity<BookDto> createBook(@Valid @RequestBody BookDto bookDto) {
+        return bookService.createBook(bookDto);
     }
 
     @PutMapping("/{id}")
     @ApiOperation(value = "Update a book")
     @PermitAll
-    public ResponseEntity<Book> updateBook(@PathVariable("id") Long id, @Valid @RequestBody Book book) {
-        return bookService.updateBook(id, book);
+    public ResponseEntity<BookDto> updateBook(@PathVariable("id") Long id, @Valid @RequestBody BookDto bookDto) {
+        return bookService.updateBook(id, bookDto);
     }
 
     @PostMapping("/{id}/export/send")
