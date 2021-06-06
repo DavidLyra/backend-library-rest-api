@@ -16,7 +16,7 @@ import java.io.Serializable;
 import java.util.List;
 
 @RestController
-@RequestMapping("/api/v1/book")
+@RequestMapping("/api/v1/books")
 @Api(tags = "Book Controller", value = "Library Management REST API - Lampiris")
 public class BookController implements Serializable {
 
