@@ -5,14 +5,11 @@ import io.swagger.annotations.ApiModelProperty;
 import lombok.AllArgsConstructor;
 import lombok.Data;
 import lombok.NoArgsConstructor;
-import org.springframework.validation.annotation.Validated;
 
 import javax.persistence.*;
-import javax.validation.constraints.NotBlank;
 import java.io.Serializable;
 
 @Data
-@Validated
 @Entity
 @Table(name="book_family")
 @NoArgsConstructor
@@ -28,6 +25,5 @@ public class BookFamily implements Serializable {
 
     @Column(name="name")
     @ApiModelProperty(notes = "Book Family Name", example = "Technology", required = true)
-    @NotBlank(message = "Name is mandatory")
     private String name;
 }

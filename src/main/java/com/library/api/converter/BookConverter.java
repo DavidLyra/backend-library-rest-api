@@ -2,6 +2,7 @@ package com.library.api.converter;
 
 import com.library.api.model.Book;
 import com.library.api.model.dto.BookDto;
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Component;
 
 import java.util.List;
@@ -10,11 +11,14 @@ import java.util.stream.Collectors;
 @Component
 public class BookConverter {
 
+    @Autowired
+    private BookFamilyConverter bookFamilyConverter;
+
     public BookDto entityToDto(Book book) {
         BookDto bookDto = new BookDto();
         bookDto.setId(book.getId());
         bookDto.setTitle(book.getTitle());
-        bookDto.setBookFamily(book.getBookFamily());
+        bookDto.setBookFamily(bookFamilyConverter.entityToDto(book.getBookFamily()));
         return bookDto;
     }
 
@@ -26,7 +30,7 @@ public class BookConverter {
         Book book = new Book();
         book.setId(bookDto.getId());
         book.setTitle(bookDto.getTitle());
-        book.setBookFamily(bookDto.getBookFamily());
+        book.setBookFamily(bookFamilyConverter.dtoToEntity(bookDto.getBookFamily()));
         return book;
     }
 

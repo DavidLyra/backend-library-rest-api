@@ -33,7 +33,7 @@ public class BookController implements Serializable {
     @GetMapping("/{id}")
     @ApiOperation(value = "List all the book by id", response = Book.class)
     @PermitAll
-    public ResponseEntity<BookDto> getBookFamilyById(@PathVariable("id") Long id) {
+    public ResponseEntity<BookDto> getBookById(@PathVariable("id") Long id) {
         return bookService.getBookFamilyById(id);
     }
 

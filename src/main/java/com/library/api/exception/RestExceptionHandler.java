@@ -23,7 +23,6 @@ import org.springframework.web.servlet.NoHandlerFoundException;
 import org.springframework.web.servlet.mvc.method.annotation.ResponseEntityExceptionHandler;
 
 import static org.springframework.http.HttpStatus.BAD_REQUEST;
-import static org.springframework.http.HttpStatus.NOT_FOUND;
 
 @Order(Ordered.HIGHEST_PRECEDENCE)
 @ControllerAdvice
@@ -104,20 +103,6 @@ public class RestExceptionHandler extends ResponseEntityExceptionHandler {
         ApiError apiError = new ApiError(BAD_REQUEST);
         apiError.setMessage("Validation error");
         apiError.addValidationErrors(ex.getConstraintViolations());
-        return buildResponseEntity(apiError);
-    }
-
-    /**
-     * Handles EntityNotFoundException. Created to encapsulate errors with more detail than javax.persistence.EntityNotFoundException.
-     *
-     * @param ex the EntityNotFoundException
-     * @return the ApiError object
-     */
-    @ExceptionHandler(EntityNotFoundException.class)
-    protected ResponseEntity<Object> handleEntityNotFound(
-            EntityNotFoundException ex) {
-        ApiError apiError = new ApiError(NOT_FOUND);
-        apiError.setMessage(ex.getMessage());
         return buildResponseEntity(apiError);
     }
 

@@ -1,7 +1,7 @@
 package com.library.api.service.impl;
 
 import com.library.api.converter.BookConverter;
-import com.library.api.exception.EntityNotFoundException;
+import com.library.api.converter.BookFamilyConverter;
 import com.library.api.model.Book;
 import com.library.api.model.dto.BookDto;
 import com.library.api.repository.BookRepository;
@@ -28,6 +28,9 @@ public class BookServiceImpl implements BookService {
     private BookConverter bookConverter;
 
     @Autowired
+    private BookFamilyConverter bookFamilyConverter;
+
+    @Autowired
     private SendFileFTPService sendFileFTPService;
 
     @Override
@@ -38,11 +41,8 @@ public class BookServiceImpl implements BookService {
     @Override
     public ResponseEntity<BookDto> getBookFamilyById(Long id) {
         Optional<Book> bookData = bookRepository.findById(id);
-        if (bookData.isPresent()) {
-            return new ResponseEntity<>(bookConverter.entityToDto(bookData.get()), HttpStatus.OK);
-        } else {
-            throw new EntityNotFoundException(Book.class, "id", id.toString());
-        }
+        return bookData.map(book -> new ResponseEntity<>(bookConverter.entityToDto(book),
+                HttpStatus.OK)).orElseGet(() -> ResponseEntity.notFound().build());
     }
 
     @Override
@@ -61,10 +61,10 @@ public class BookServiceImpl implements BookService {
         if (bookData.isPresent()) {
             Book _book = bookData.get();
             _book.setTitle(bookDto.getTitle());
-            _book.setBookFamily(bookDto.getBookFamily());
+            _book.setBookFamily(bookFamilyConverter.dtoToEntity(bookDto.getBookFamily()));
             return new ResponseEntity<>(bookConverter.entityToDto(bookRepository.save(_book)), HttpStatus.OK);
         } else {
-            throw new EntityNotFoundException(Book.class, "id", id.toString());
+            return ResponseEntity.notFound().build();
         }
     }
 
@@ -75,7 +75,7 @@ public class BookServiceImpl implements BookService {
             if (book.isPresent()) {
                 sendFileFTPService.sendFileFtp(BookCsvExporter.booksToCSV(Collections.singletonList(book.get())), "books.csv", "");
                 return new ResponseEntity<>(null, HttpStatus.OK);
-            } else throw new EntityNotFoundException(Book.class, "id", id.toString());
+            } else return ResponseEntity.notFound().build();
         } catch (Exception e) {
             return new ResponseEntity<>(null, HttpStatus.BAD_REQUEST);
         }
@@ -87,7 +87,7 @@ public class BookServiceImpl implements BookService {
             if (bookList.isPresent()) {
                 sendFileFTPService.sendFileFtp(BookCsvExporter.booksToCSV(bookList.get()), "books.csv", "");
                 return new ResponseEntity<>(null, HttpStatus.OK);
-            } else throw new EntityNotFoundException(Book.class, "id", id.toString());
+            } else return ResponseEntity.notFound().build();
         } catch (Exception e) {
             return new ResponseEntity<>(null, HttpStatus.BAD_REQUEST);
         }
